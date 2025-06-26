@@ -22,3 +22,6 @@ module "ec2_instance" {
   ami = var.ami
   instance_type = lookup(var.instance_type, terraform.workspace, "t2.micro")
 }
+
+#   instance_type = lookup(var.instance_type, terraform.workspace, "t2.micro")
+# In the above line. lookup will see terraform.workspace is prod or stage or dev (terraform workspace set prod) then select based on workspace. If no workspace present the select default t2.micro
